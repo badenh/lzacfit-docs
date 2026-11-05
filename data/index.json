@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-09T02:12:15Z",
-  "tool_version": "1.1.0",
+  "generated_at": "2026-11-05T20:25:32Z",
+  "tool_version": "1.2.0",
   "versions": [
     {
       "version": "1.1.0",
@@ -31,13 +31,24 @@
       "lza_ids": 192,
       "mapping_tuples": 12036,
       "descriptions": 191
+    },
+    {
+      "version": "1.4.0",
+      "publish_date": "3 Nov 2026",
+      "source_file": "LZA Compliance Workbook v1.4.0.csv",
+      "artifact": "lza-cw-v1.4.0.json",
+      "frameworks": 26,
+      "lza_ids": 193,
+      "mapping_tuples": 21176,
+      "descriptions": 193
     }
   ],
   "artifacts": {
     "per_version": [
       "lza-cw-v1.1.0.json",
       "lza-cw-v1.2.0.json",
-      "lza-cw-v1.3.0.json"
+      "lza-cw-v1.3.0.json",
+      "lza-cw-v1.4.0.json"
     ],
     "cross_version": "cross-version.json",
     "hot": "hot.json"
