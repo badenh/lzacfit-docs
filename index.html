@@ -154,9 +154,17 @@
     <label>Select Version
       <select id="f-version"></select>
     </label>
-    <label>Show Top N
+    <label>Show Top/Bottom N
       <select id="f-topn">
-        <option selected>10</option><option>25</option><option>50</option><option>100</option><option value="0">All</option>
+        <option value="10" selected>Top 10</option>
+        <option value="25">Top 25</option>
+        <option value="50">Top 50</option>
+        <option value="100">Top 100</option>
+        <option value="0">All</option>
+        <option value="-10">Bottom 10</option>
+        <option value="-25">Bottom 25</option>
+        <option value="-50">Bottom 50</option>
+        <option value="-100">Bottom 100</option>
       </select>
     </label>
   </div>
@@ -305,9 +313,14 @@
         <option value="aggregate">Aggregate (all versions)</option>
       </select>
     </label>
-    <label>Show Top N
+    <label>Show Top/Bottom N
       <select id="hL-topn">
-        <option selected>10</option><option>25</option><option>50</option>
+        <option value="10" selected>Top 10</option>
+        <option value="25">Top 25</option>
+        <option value="50">Top 50</option>
+        <option value="-10">Bottom 10</option>
+        <option value="-25">Bottom 25</option>
+        <option value="-50">Bottom 50</option>
       </select>
     </label>
   </div>
@@ -326,9 +339,14 @@
         <option value="aggregate">Aggregate (all versions)</option>
       </select>
     </label>
-    <label>Show Top N
+    <label>Show Top/Bottom N
       <select id="hR-topn">
-        <option selected>10</option><option>25</option><option>50</option>
+        <option value="10" selected>Top 10</option>
+        <option value="25">Top 25</option>
+        <option value="50">Top 50</option>
+        <option value="-10">Bottom 10</option>
+        <option value="-25">Bottom 25</option>
+        <option value="-50">Bottom 50</option>
       </select>
     </label>
   </div>

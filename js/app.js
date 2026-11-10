@@ -66,6 +66,16 @@ function sizeBarWrap(canvasId, rowCount, rowH = 26, extra = 90) {
   wrap.style.height = Math.max(160, rowCount * rowH + extra) + "px";
 }
 
+// Slice a desc-sorted entries array by a signed count. Positive n picks the
+// first n (top-N). Negative n picks the last |n|, reversed so the lowest
+// count sits at the top of the resulting chart/table. 0 (or NaN) returns all.
+function sliceTopBottom(entries, n) {
+  if (!n || Number.isNaN(n)) return entries.slice();
+  if (n > 0) return entries.slice(0, n);
+  const k = Math.min(-n, entries.length);
+  return entries.slice(-k).reverse();
+}
+
 function fwLink(name) {
   return el("a", { href: "#framework-view", "data-fw": name, class: "fw-link" }, name);
 }
@@ -463,7 +473,7 @@ function renderFrameworkView(framework, version, topN) {
   let entries = Array.from(rcCounts, ([rc, set]) => ({ rc, count: set.size }))
     .sort((a, b) => b.count - a.count || naturalCmp(a.rc, b.rc));
   const total = entries.length;
-  if (topN > 0) entries = entries.slice(0, topN);
+  entries = sliceTopBottom(entries, topN);
 
   sizeBarWrap("f-chart", entries.length);
   destroyChart("f-chart");
@@ -1181,7 +1191,7 @@ function initHotLzaView(versions) {
 
 function renderHotLza(scopeValue, topN) {
   const { hot, label } = resolveHotScope(scopeValue);
-  const slice = hot.hot_lza.slice(0, topN);
+  const slice = sliceTopBottom(hot.hot_lza, topN);
   sizeBarWrap("hL-chart", slice.length);
   destroyChart("hL-chart");
   state.charts["hL-chart"] = new Chart(document.getElementById("hL-chart"), {
@@ -1231,7 +1241,7 @@ function initHotRcView(versions) {
 
 function renderHotRc(scopeValue, topN) {
   const { hot, label } = resolveHotScope(scopeValue);
-  const slice = hot.hot_related.slice(0, topN);
+  const slice = sliceTopBottom(hot.hot_related, topN);
   sizeBarWrap("hR-chart", slice.length);
   destroyChart("hR-chart");
   state.charts["hR-chart"] = new Chart(document.getElementById("hR-chart"), {
